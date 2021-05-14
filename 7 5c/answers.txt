@@ -1,0 +1,16 @@
+E/16/388
+CO324 Lab 5: Stateful systems
+
+EX 1 (a) and (b) implemented in codes
+
+EX 2 (d) and EX 3 implemented in codes
+
+
+EX 2 (c) answer is in taskstate-fsm.pdf
+
+EX 2 (e)
+Can a task ever make an illegal transition due to a race condition during update? Explain why (not.)
+
+No,
+FSM is designed in a way it does not do any illegal transitions of states for Tasks.Some users may not know the real state of a Task due to race conditions(state transitions may occur 
+withot the knowledge of the user), FSM will produce an suitable error message if there are any illeagal requests of transition. Otherwise state transition will occur.

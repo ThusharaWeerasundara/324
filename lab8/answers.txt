@@ -1,0 +1,62 @@
+E/16/388
+Weerasundara W.M.T.M.P.B.
+CO324 Lab 6: Pub-sub with MQTT Part (a) Design decisions
+
+1.
+Since there is no server in a publish-subscribe system, each client will have to store a list of tasks in their local storages. To store all tasks, 
+clients should subscribe to all the topics and when someone publish to a topic, subscribers will get messages and they can update their local storages.
+
+2. 
+Task id generation can be done by the user itself. We can hash the descriptions in order to get unique task ids based on their description.
+
+3.
+We can create topics for ADD, DELETE (and LIST as well) operations. When a client does a operation, it will be published to the regarding topic. If clients are subscribed to
+all the topics using wildcards, then clients receive the update about the operation. (ADD, DELETE) 
+
+LIST operation is required if, 
+i.   A client is joined in the middle  
+ii.  Lost the local stored task list due to error in local storage
+iii. Failure of receiving updates from the subscribed topics due to connection issues
+
+4.
+
+a.
+QOS 0 send a message at most once and it is unreliable. This is not suitable.
+
+QOS 1 sends a message at least once and also have acknoledgement policies and duplicate messages indication flags. Since we use unique task ids, even with duplicate 
+messages we can handle them. Therefore QOS 1 is suitable.
+
+QOS 2 sends a message exactly once and guarentees it by 4 way handshake. It is kind of over kill for this implementation.
+
+Therefore QOS 1 is better suited for ADD and DELETE operations.
+
+b.
+If clean session flag is false, connected client is considered durable. Eventhough client got disconnected, all of its subscription data will be stored untill it 
+reconnects. If flag is set to true, all subscriptions will be removed once the client disconnects.
+
+Therefore it is better to set Clean session flag to false ADD and DELETE operations.
+
+c.
+If Retained flag on message publication is set, broker will keep a copy of published retained messages, even after they are sent to all the subscribers. This is usefull 
+if a new subscription is made by a client and there is a previously sent retained message for that topic, retained message will be sent to the new client.
+
+Therefore we can set Retained flag on message publication to true for ADD and DELETE operations.
+
+
+5.
+Both a and b options are can be used since we use wildcards.
+
+6.
+Since we can access task description using task id, we dont need to include description in the topic.
+
+ 
+
+
+ 
+
+
+
+
+
+
+ 

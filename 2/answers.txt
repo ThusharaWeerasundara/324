@@ -1,0 +1,69 @@
+E/16/388
+CO324 Lab 1: Python crash course part II
+
+Exercises
+
+2.
+
+(b) How would you sort students by the number of courses that they 		are registered for? (Hint: look at the len function)
+
+By sorting the Student object list according to the number of courses of each student object 
+
+using line : sorted_by_courses = sorted(students, key = lambda s: len(s.registered_courses)) 
+
+implementation:
+
+
+from dataclasses import dataclass   #to make student class
+from typing import List, Dict       #to use in Student class
+
+@dataclass
+
+class Student:
+
+    """A student's course registration details"""
+
+    given_name: str
+
+    surname: str
+
+    registered_courses: List[str]
+
+def load_course_registrations(filename: str) -> List[Student]:
+
+    students = []  #list to store student objects
+
+    with open(filename) as file:    #open input file
+
+        for line in file:   #using a loop to create student objects and store them in a list
+            row = line.strip()
+            fname,lname,*courses = row.split(',')
+            student = Student(fname,lname,courses)
+            students.append(student)
+           
+    return students
+
+
+
+students = load_course_registrations("details.txt") #calling to read the file and get list of students
+
+sorted_by_courses = sorted(students, key = lambda s: len(s.registered_courses)) #return a new list after sorting by no. of courses ex2(b)
+
+
+
+
+
+
+
+3. 
+(b)Can we use a two-element list [surname, given_name] as the key? Explain why.
+
+In python, dictionaries map key objects to value objects. Values could be any type but keys must be immutable, such as strings, numbers and tuples. list is immutable. Also key value types should support hash function and equality comparison. That means,
+
+if hash(x) == hash(y) then x = y. 
+
+Therefore for every key values there must be different key values else those keys are equal.
+
+Lists dont support hash function, even if they do and lists are hashed by their ids the lists with same content will hashed differently because of different ids. Also if lists were hashed by content and list is used as a key to a dictionary, if contents in the list get updated the key is modified. The modification changed the hash value. Since dictionary doesnt know that the key is modified, it could lead to errors.
+
+Therefore both ways of hashing a list results in undesirable effects, therefore python doesn't allow to use lists as keys. If we try it gives an error and tells that list is an unhashable type.

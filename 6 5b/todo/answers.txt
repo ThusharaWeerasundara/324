@@ -1,0 +1,129 @@
+E/16/388
+Weerasundara WMTMPB
+Lab 4 Grpc part Part (B) Error handling, write conflicts and race conditions - Answers
+
+
+1. State whether each Task API operation is idempotent along with an explanation. 
+
+To task to become idempotent, that task can be applied multiple times without affecting the state/
+results of the server beyond the initial application.
+
+When considering tasks in API,
+
+i) addTask
+
+When this is executed, a new Task object is added to the dictionary in Server. Therefore, for each
+execution status of the server will change. Therefore, addTask is not idempotent.
+
+ii) delTask
+
+When this is executed, it deletes and returns the required tasks. If we execute this multiple times,
+deletion will happen only the 1st time, other times deletion won't happen and no changes will be made to 
+server. There fore delTask is idempotent.
+
+iii) editTask
+
+When this is executed multiple times with the same arguments, state of the server won't change after the 1st execution.
+Therefore this is idempotent.
+
+iv) listTasks
+
+We don't give input arguments to this method. Therefore this is a safe method. Each execution will results the same state
+in the server therefore this is idempotent.
+
+
+2. Add error handling to the Task API RPCs to ensure the following.
+
+    Task descriptions must be less than MAXLEN=1024 characters.
+    Task IDs must be valid.
+
+Implemented in code.
+
+
+3. Why is it necessary to implement the checks stated above?
+
+When designing a server-client network application, we must never trust a user input. User inputs could be erroneous and also can be harmful to the 
+system. Therefore user inputs must be checked for errors and potential threats and notify the user if there are any issues with inputs.
+
+i) Task descriptions must be less than MAXLEN=1024 characters.
+
+If client send a huge descpription, server will handle that input for a long time while the other clients are waiting. This is kind of like 
+a DDOS attack. This will deny the services to other clients for a extended time and this design is not ideal for a good server implementation.
+To avoid this we need to check the description size. This is the main reason Also when storing, for memory management purposes 
+this size limit check is useful.
+
+ii) Task IDs must be valid.
+
+To editTask and delTask operation, we need a valid taskId to select the task and perform the required operation. If the id is invalid server
+can't perform the action and client must be notified to retry with a correct TaskId. 
+
+4. Complete TaskapiImpl.__enter__ and TaskapiImpl.__exit__ to save and load tasks to and from a file.
+
+implemented in code
+
+
+5. Implement TaskapiImpl.editTask RPC that edits an existing task. 
+
+Implemented in code.
+
+
+6. What happens if editTask is called on the same task by two clients simultaneously? Suggest a possible solution.
+
+The 2 requests will be done by 2 threads. Both of threads will have to load the required task to the memory and do the editing and then sotre it back. 
+When this process happens simultaneously if both clients update the same memory using same task_id, updates made by a one client is lost because other client's 
+updates overrites it. Therefore it results in lost update problem.
+
+
+To avoid this, we can use a mutual lock to all the threads. When a thread access the editTask method, we can lock it and prevent other threads accessing it's
+critical sections until the current thread finishes execution. Therefore only one thread uses this secion of editTask  method at a time. We can use a lock at 
+Therefore lost update problem can be avoided.
+Also after an update is done to a task, new state is needed to be broadcasted or atleast sent to the clients who have previously accessed it.
+
+
+
+7. There is a subtle error in the provided implementation of addTask called a data race. How can we fix this problem?
+
+When 2 clients calls addTask simultaneously, 2 threads will generate and try to execute concurrently. They both will load task_id variable from memory and use it as
+the Taskid for their task. Both threads will load that same memory location and write to their descriptions in respective loaded memories, then store it back in the
+memory. Since they both use same task_id, they use same memory location. Since 2 threads write at same memory location, there could me memory corruptions. Also after storing 
+the description, when incrementing task_id, final value of task_id could be errorneous because they both have the same value as task_id.
+
+To fix this we need to make sure task_id is only accessed by a single thread at a time. Therefore we can use a lock object to limit access to task_id when accessing it.
+Other threads which access task_id would have to wait until the Lock is free.
+
+
+8. A student writes the following code to prevent the data race in addTask. Explain why this does not ensure mutual exclusion.
+
+In the given addTask implementation, each time a thread calls addTask, it creates a new lock inside the method. Therefore threads don't share a one lock object so lock is not
+visible to other threads. Therefore other threads can access the critical parts in the  method. So this doesn't ensure mutual exclusion.
+To ensure mutual exclusion, Lock object should be visible to other threads. By creating a single Lock object and use it when accessing the critical sections pf the method
+will make sure of mutual exclusion. This is implemented in code.
+
+
+9. Impose a critical section in your implementation of addTask to ensure proper mutual exclusion.
+
+Implemented in code.
+
+10. Does code in listTasks need to be in a critical section? Explain why (not?)
+
+Yes it needed to be designed as a critical section. Because while one thread executes listTasks , another thread could execute addTask or delTask or editTask which could 
+modify the Tasks stored in server. Therefore in these situation while one thread is reading a memory, another thread is modifying that memory. This could 
+lead to giving a corrupted list as results in listTask method. Therefore it needed to be designed as a critical section and other methods which could clash with
+that method need to be mutually excluded.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

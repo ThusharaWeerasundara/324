@@ -1,0 +1,347 @@
+
+
+{
+   "Heading" : "University of Peradeniya",
+   "ImageWidth" : 369,
+   "Type" : "A",
+   "Results" : [
+      {
+         "Result" : "<a href=\"http://www.pdn.ac.lk\"><b>Official site</b></a><a href=\"http://www.pdn.ac.lk\"></a>",
+         "Text" : "Official site",
+         "Icon" : {
+            "Height" : 16,
+            "URL" : "https://duckduckgo.com/i/pdn.ac.lk.ico",
+            "Width" : 16
+         },
+         "FirstURL" : "http://www.pdn.ac.lk"
+      }
+   ],
+   "Image" : "https://duckduckgo.com/i/9f6943b8.jpg",
+   "Entity" : "location",
+   "meta" : {
+      "src_url" : null,
+      "repo" : "fathead",
+      "js_callback_name" : "wikipedia",
+      "producer" : null,
+      "maintainer" : {
+         "github" : "duckduckgo"
+      },
+      "dev_milestone" : "live",
+      "description" : "Wikipedia",
+      "attribution" : null,
+      "is_stackexchange" : null,
+      "developer" : [
+         {
+            "name" : "DDG Team",
+            "url" : "http://www.duckduckhack.com",
+            "type" : "ddg"
+         }
+      ],
+      "unsafe" : 0,
+      "id" : "wikipedia_fathead",
+      "src_name" : "Wikipedia",
+      "example_query" : "nikola tesla",
+      "src_id" : 1,
+      "blockgroup" : null,
+      "designer" : null,
+      "tab" : "About",
+      "src_domain" : "en.wikipedia.org",
+      "dev_date" : null,
+      "signal_from" : "wikipedia_fathead",
+      "live_date" : null,
+      "perl_module" : "DDG::Fathead::Wikipedia",
+      "status" : "live",
+      "name" : "Wikipedia",
+      "production_state" : "online",
+      "topic" : [
+         "productivity"
+      ],
+      "created_date" : null,
+      "src_options" : {
+         "is_wikipedia" : 1,
+         "skip_icon" : 0,
+         "skip_abstract" : 0,
+         "skip_abstract_paren" : 0,
+         "min_abstract_length" : "20",
+         "is_mediawiki" : 1,
+         "language" : "en",
+         "is_fanon" : 0,
+         "skip_qr" : "",
+         "directory" : "",
+         "skip_end" : "0",
+         "source_skip" : "",
+         "skip_image_name" : 0,
+         "src_info" : ""
+      }
+   },
+   "RelatedTopics" : [
+      {
+         "Icon" : {
+            "Width" : "",
+            "URL" : "",
+            "Height" : ""
+         },
+         "FirstURL" : "https://duckduckgo.com/c/University_of_Peradeniya",
+         "Result" : "<a href=\"https://duckduckgo.com/c/University_of_Peradeniya\">University of Peradeniya Category</a>",
+         "Text" : "University of Peradeniya Category"
+      },
+      {
+         "Text" : "Education in Sri Lanka - Education in Sri Lanka has a long history that dates back two millennia. The Constitution of Sri Lanka provides free education as a fundamental right.",
+         "Result" : "<a href=\"https://duckduckgo.com/Education_in_Sri_Lanka\">Education in Sri Lanka</a> - Education in Sri Lanka has a long history that dates back two millennia. The Constitution of Sri Lanka provides free education as a fundamental right.",
+         "Icon" : {
+            "Height" : "",
+            "URL" : "",
+            "Width" : ""
+         },
+         "FirstURL" : "https://duckduckgo.com/Education_in_Sri_Lanka"
+      },
+      {
+         "Text" : "University of Ceylon - The University of Ceylon was the only university in Sri Lanka from 1942 until 1972. It had several constituent campuses at various locations around Sri Lanka. The University of Ceylon Act No. 1 of 1972, replaced it with the University of Sri Lanka which existed from 1973 to 1978.",
+         "Result" : "<a href=\"https://duckduckgo.com/University_of_Ceylon\">University of Ceylon</a> - The University of Ceylon was the only university in Sri Lanka from 1942 until 1972. It had several constituent campuses at various locations around Sri Lanka. The University of Ceylon Act No. 1 of 1972, replaced it with the University of Sri Lanka which existed from 1973 to 1978.",
+         "Icon" : {
+            "URL" : "",
+            "Width" : "",
+            "Height" : ""
+         },
+         "FirstURL" : "https://duckduckgo.com/University_of_Ceylon"
+      },
+      {
+         "Icon" : {
+            "Width" : "",
+            "URL" : "",
+            "Height" : ""
+         },
+         "FirstURL" : "https://duckduckgo.com/c/Engineering_universities_and_colleges_in_Sri_Lanka",
+         "Text" : "Engineering universities and colleges in Sri Lanka",
+         "Result" : "<a href=\"https://duckduckgo.com/c/Engineering_universities_and_colleges_in_Sri_Lanka\">Engineering universities and colleges in Sri Lanka</a>"
+      },
+      {
+         "Result" : "<a href=\"https://duckduckgo.com/c/Statutory_boards_of_Sri_Lanka\">Statutory boards of Sri Lanka</a>",
+         "Text" : "Statutory boards of Sri Lanka",
+         "Icon" : {
+            "URL" : "",
+            "Width" : "",
+            "Height" : ""
+         },
+         "FirstURL" : "https://duckduckgo.com/c/Statutory_boards_of_Sri_Lanka"
+      },
+      {
+         "Icon" : {
+            "Height" : "",
+            "URL" : "",
+            "Width" : ""
+         },
+         "FirstURL" : "https://duckduckgo.com/c/Universities_in_Sri_Lanka",
+         "Result" : "<a href=\"https://duckduckgo.com/c/Universities_in_Sri_Lanka\">Universities in Sri Lanka</a>",
+         "Text" : "Universities in Sri Lanka"
+      },
+      {
+         "Text" : "Forestry education",
+         "Result" : "<a href=\"https://duckduckgo.com/c/Forestry_education\">Forestry education</a>",
+         "FirstURL" : "https://duckduckgo.com/c/Forestry_education",
+         "Icon" : {
+            "URL" : "",
+            "Width" : "",
+            "Height" : ""
+         }
+      }
+   ],
+   "Redirect" : "",
+   "AbstractText" : "The University of Peradeniya is a state university in Sri Lanka, funded by the University Grants Commission. It is the largest and oldest university in Sri Lanka, which was originally established as the University of Ceylon in 1942. The University of Peradeniya hosts nine faculties, three postgraduate institutes, 10 centres, 73 departments, and teaches about 11,000 students in the fields of Medicine, Agriculture, Arts, Science, Engineering, Dental Sciences, Veterinary Medicine and Animal Science, Management and Allied Health Science. It claims to have the largest government endowment by a higher education institution in Sri Lanka, based on its large staff and faculties/departments.",
+   "Abstract" : "The University of Peradeniya is a state university in Sri Lanka, funded by the University Grants Commission. It is the largest and oldest university in Sri Lanka, which was originally established as the University of Ceylon in 1942. The University of Peradeniya hosts nine faculties, three postgraduate institutes, 10 centres, 73 departments, and teaches about 11,000 students in the fields of Medicine, Agriculture, Arts, Science, Engineering, Dental Sciences, Veterinary Medicine and Animal Science, Management and Allied Health Science. It claims to have the largest government endowment by a higher education institution in Sri Lanka, based on its large staff and faculties/departments.",
+   "AbstractSource" : "Wikipedia",
+   "AbstractURL" : "https://en.wikipedia.org/wiki/University_of_Peradeniya",
+   "Definition" : "",
+   "DefinitionSource" : "",
+   "AnswerType" : "",
+   "ImageIsLogo" : 1,
+   "Infobox" : {
+      "meta" : [
+         {
+            "data_type" : "string",
+            "value" : "University of Peradeniya",
+            "label" : "article_title"
+         },
+         {
+            "value" : "infobox university",
+            "label" : "template_name",
+            "data_type" : "string"
+         },
+         {
+            "value" : "\u0db4\u0dda\u0dbb\u0dcf\u0daf\u0dd9\u0dab\u0dd2\u0dba \u0dc0\u0dd2\u0dc1\u0dca\u0dc0 \u0dc0\u0dd2\u0daf\u0dca\u200d\u0dba\u0dcf\u0dbd\u0dba, \u0baa\u0bc7\u0bb0\u0bbe\u0ba4\u0ba9\u0bc8\u0baa\u0bcd \u0baa\u0bb2\u0bcd\u0b95\u0bb2\u0bc8\u0b95\u0bcd\u0b95\u0bb4\u0b95\u0bae\u0bcd",
+            "label" : "subheader",
+            "data_type" : "string"
+         },
+         {
+            "value" : "University of Peradeniya Crest",
+            "label" : "caption",
+            "data_type" : "string"
+         },
+         {
+            "value" : "university",
+            "label" : "formatting_rules",
+            "data_type" : "string"
+         }
+      ],
+      "content" : [
+         {
+            "data_type" : "string",
+            "sort_order" : "1000",
+            "wiki_order" : 0,
+            "value" : "Sarvasva Locanam Sasthram (Sanskrit)",
+            "label" : "Motto"
+         },
+         {
+            "sort_order" : "4",
+            "data_type" : "string",
+            "label" : "Motto (English)",
+            "wiki_order" : 1,
+            "value" : "Knowledge is the Eye Unto All"
+         },
+         {
+            "sort_order" : "1001",
+            "data_type" : "string",
+            "label" : "Type",
+            "wiki_order" : 2,
+            "value" : "Public"
+         },
+         {
+            "sort_order" : "2",
+            "data_type" : "string",
+            "label" : "Established",
+            "value" : "1942 University of Ceylon, 1972 University of Sri Lanka, Peradeniya Campus, 1978 University of Peradeniya",
+            "wiki_order" : 3
+         },
+         {
+            "data_type" : "string",
+            "sort_order" : "1002",
+            "value" : "LKR 2.265 billion",
+            "wiki_order" : 4,
+            "label" : "Endowment"
+         },
+         {
+            "label" : "Chancellor",
+            "value" : "Prof. P.W. Epasinghe",
+            "wiki_order" : 5,
+            "sort_order" : "3",
+            "data_type" : "string"
+         },
+         {
+            "sort_order" : "1003",
+            "data_type" : "string",
+            "label" : "Vice-Chancellor",
+            "wiki_order" : 6,
+            "value" : "Prof. Upul B.Dissanayake"
+         },
+         {
+            "data_type" : "string",
+            "sort_order" : "1004",
+            "value" : "731",
+            "wiki_order" : 7,
+            "label" : "Academic staff"
+         },
+         {
+            "label" : "Administrative staff",
+            "value" : "2,973",
+            "wiki_order" : 8,
+            "sort_order" : "1005",
+            "data_type" : "string"
+         },
+         {
+            "data_type" : "string",
+            "sort_order" : "2",
+            "value" : "11,065 [a]",
+            "wiki_order" : 9,
+            "label" : "Students"
+         },
+         {
+            "sort_order" : "1006",
+            "data_type" : "string",
+            "label" : "Undergraduates",
+            "value" : "9,605 [b]",
+            "wiki_order" : 10
+         },
+         {
+            "value" : "1,440 [c]",
+            "wiki_order" : 11,
+            "label" : "Postgraduates",
+            "data_type" : "string",
+            "sort_order" : "1007"
+         },
+         {
+            "label" : "Campus",
+            "value" : "Suburban, 700 Hectares",
+            "wiki_order" : 12,
+            "sort_order" : "1008",
+            "data_type" : "string"
+         },
+         {
+            "wiki_order" : 13,
+            "value" : "Ceylon Journal of Science, Sri Lanka Journal of Humanities and Social Sciences",
+            "label" : "Publication(s)",
+            "data_type" : "string",
+            "sort_order" : "1009"
+         },
+         {
+            "label" : "Colours",
+            "value" : "Gold & Maroon",
+            "wiki_order" : 14,
+            "sort_order" : "1010",
+            "data_type" : "string"
+         },
+         {
+            "data_type" : "string",
+            "sort_order" : "1011",
+            "wiki_order" : 15,
+            "value" : "30 athletic teams",
+            "label" : "Athletics"
+         },
+         {
+            "data_type" : "string",
+            "sort_order" : "1012",
+            "wiki_order" : 16,
+            "value" : "University Grants Commission of Sri Lanka Association of Commonwealth Universities",
+            "label" : "Affiliations"
+         },
+         {
+            "data_type" : "string",
+            "sort_order" : "1013",
+            "value" : "[www.pdn.ac.lk]",
+            "wiki_order" : 17,
+            "label" : "Website"
+         },
+         {
+            "label" : "Coordinates",
+            "wiki_order" : "205",
+            "value" : {
+               "globe" : "http://www.wikidata.org/entity/Q2",
+               "precision" : 0.090556363070618,
+               "longitude" : 80.5967,
+               "latitude" : 7.25417,
+               "altitude" : null
+            },
+            "data_type" : "coordinates"
+         },
+         {
+            "wiki_order" : "207",
+            "value" : {
+               "entity-type" : "item",
+               "id" : "Q875538",
+               "numeric-id" : 875538
+            },
+            "label" : "Instance of",
+            "data_type" : "instance"
+         },
+         {
+            "wiki_order" : 999,
+            "value" : "/local.js?&ha=1&lla=80.5967,7.25417:0.1&heading=University%20of%20Peradeniya&q=University%20of%20Peradeniya",
+            "data_type" : "wiki_maps_trigger"
+         }
+      ]
+   },
+   "Answer" : "",
+   "ImageHeight" : 103,
+   "DefinitionURL" : ""
+}
+
+>>> 

@@ -1,0 +1,1 @@
+Assume tasks in CANCELLED and DONE states are not going to be eddited again. If try to edit a task in that state an error will be given. 

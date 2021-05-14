@@ -1,0 +1,113 @@
+E/16/388
+Lab 1 answers
+
+1.
+
+(a). Inside load_users_to_lists function we open a txt file. Without closing the file manually
+	 we can do the file open and other operations in a with block. At the end of the block
+	 file will be closed and resources will be released. Even if there was an exception in
+	 writing to the file with block closes the file at the end properly. Basically with block
+	 manages file resources.
+
+(b). In the function, 2 lists are returned as a tuple.
+
+
+2.
+
+(c). It returns a zip object. It creates an iterator that aggregate elements from 2 or more  
+	 iterables, in this case 2 lists. Elements in input arguments are grouped according to
+	 their positions.(nth item of pased iterators will mapped together)
+
+(d). Inside the zip object, in all the elements, members will swap positions. Elements in
+	 login become the 1st and ids become the 2nd element.
+
+3.
+
+(e). By using, users[id] we can access login value using id as key.(users is the name of the dictionary and id is the key)
+
+
+#ex3e
+
+def load_users_to_dict(filename):
+
+    users = dict()  #users dictionary to store entries
+
+    with open(filename) as f: #open file
+
+        for line in f:  #iterate through lines
+
+            id, login = line.split()  #split by space
+
+            users[id] = login  #store login name according to id
+
+    return users  #return results
+
+
+users = load_users_to_dict('userdata.txt')    #method call
+
+for id in users:      #using loop to go through id in results
+    print("id: {}, user's login: {}".format(id, users[id]))   #display logins by providing login id
+
+
+
+
+
+
+
+(f). without doing users[id] = login, swap id and login as
+	 users[login] = id 
+	when we enter the values to thr dictionary. Then login becomes the key and id becomes the value. (full implementation is in ex3f.py)
+
+
+#ex3f
+
+def load_users_to_dict(filename):
+
+    users = dict()  #users dictionary to store entries
+
+    with open(filename) as f: #open file
+
+        for line in f:  #iterate through lines
+
+            id, login = line.split()  #split by space
+
+            users[login] = id  #store id according to login
+
+    return users  #return results
+
+
+users = load_users_to_dict('userdata.txt')    #method call
+
+for login in users:      #using loop to go through id in results
+    print("login: {}, user's id: {}".format(login, users[login]))   #display logins by providing login name
+
+
+
+
+
+
+(g). without doing id, login = line.split(),
+
+	 row = line.strip()  			#to remove useless spaces and new line characters
+     	 id, login = row.split(',')		#to split values seperated by a ','
+	 
+	(full implementation is in ex3g.py)
+
+
+
+#ex3g
+def load_users_to_dict(filename):
+
+    users = dict()      #dictionary to store entries
+
+    with open(filename) as f:   #open file
+
+        for line in f:  #iterate through lines
+
+            row = line.strip()  #remove whitesapace(new line character) from each row
+            id, login = row.split(',')  #split by ,
+
+
+            users[id] = login  #store login name by user id
+
+    return users #return results

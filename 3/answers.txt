@@ -1,0 +1,82 @@
+(1).
+
+(a) 200
+
+(b) Apache/2.4.35 (FreeBSD) OpenSSL/1.0.1s-freebsd PHP/5.6.38
+
+Server: Apache/2.4.35
+OS: FreeBSD
+
+(c) 54123 bytes
+
+(d) type(body) returns <class 'bytes'>. Therefore its' type is bytes before decoding. After decoding type is string
+
+(e) because response body of http requests are transmitted as bytes
+
+(f) It gives http error for request "http://eng.pdn.ac.lk/unknown" 
+	HTTP Error 404: Not Found
+
+	
+	It giges urlopen error "http://unknown.pdn.ac.lk"
+	<urlopen error [Errno 11001] getaddrinfo failed>
+
+(h) Before decoding some hexa values like \xe0\xae\x9a\xe0\xaf is printing. This is encoded characters. (utf-8)
+	After decoding some html syntax and unicode characters. This is the decoded content of the html page.
+
+
+
+ 
+(2)
+
+(i) In response, header and body is changed.
+	
+	In header 'Content-Type' is changed from 'text/html; charset=UTF-8' to 'application/x-javascript'. 
+
+	In body we can observe a jason format which easier to read than the previous results.
+
+(j) url request gives same result in both browser and python script after decoding the body and printing it.
+
+	{
+   "Entity" : "",
+   "DefinitionSource" : "",
+   "Results" : [],
+   "AbstractURL" : "",
+   "Definition" : "",
+   "Answer" : "",
+   "DefinitionURL" : "",
+   "AbstractSource" : "",
+   "Abstract" : "",
+   "AbstractText" : "",
+   "ImageHeight" : "",
+   "Infobox" : "",
+   "Redirect" : "",
+   "ImageIsLogo" : "",
+   "Heading" : "",
+   "Type" : "",
+   "Image" : "",
+   "meta" : null,
+   "ImageWidth" : "",
+   "AnswerType" : "",
+   "RelatedTopics" : []
+}
+
+ This is an empty result.
+
+(k) 
+
+URL encoding
+URLs can only sent over the internet by useind ASCII character set. Since URLs have characters not in ASCII set, they needed to be converted to a usable format. Therefore, URL Encoding is a mechanism to convert reserved, unsafe, and non-ASCII characters in URLs to a format that is universally accepted and understood by all web browsers and servers.
+
+URL decoding
+Undoing the changes made during the URL encoding process and get the URL before it was encoded.
+
+(l) by parsing the name in sinhala
+	request.urlopen("https://duckduckgo.com/?q="+parse.quote("තුෂාර+වීරසුන්දර&format=json&pretty=1"))
+	because unicode characters are not in the ASCII character set.
+
+
+
+
+(3)
+
+(c) by using requests.head(required_url) we can get http headers without downloading the response bodies. 

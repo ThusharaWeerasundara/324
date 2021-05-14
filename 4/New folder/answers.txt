@@ -1,0 +1,49 @@
+E/16/388
+CO324 Lab 3: Exploring APIs with the Requests 3 module
+
+Ex1
+
+(a) 
+We see urls/directories in API root endpoint https://api.github.com
+
+(c)
+X-Ratelimit headers are not genaral set of headers. They are extended set of headers which are specific to a API. These
+headers are used for rate limiting for http. Most APIs are subject to a limit on how many calls can be made in a certain
+time period, to prevent servers from being overloaded and maintain a good service to clients. For this purposes APIs use
+X-Ratelimit headers. In githu api we see 3 X-Ratelimit headers. They are,
+
+X-Ratelimit-Limit 		: The maximum number of requests you're permitted to make per hour
+X-Ratelimit-Remaining 	: The number of requests remaining in the current rate limit window.
+X-Ratelimit-Reset		: The time at which the current rate limit window resets in UTC epoch seconds
+
+(d)
+In http there is a header called Authorization which used to authenticate an user. 
+
+with requests.Session() as session:
+    session.headers['Authorization'] = 'token YOUR_PAT_STRING'
+
+This code creates an instance of Session class to make https requests. Also in here we initialize Authorization header
+using the token given by github. Therefore when making a request instead of using username and password, server can
+authenticate the user using token.
+
+(2)
+(c)
+All the requests sent to https://api.github.com receive v3 of REST API by default. 
+To use v4, we can use endpoint https://api.github.com/graphql to inform the API. This is the only endpoint for API v4.
+
+(d)
+Differences between 2 API versions
+
+GraphQL introduced has improved data fetching than REST API. In REST API to fetch data from a server, we may
+required to make requests to multiple endpoints. But with GraphQL, with a single request we can get an object and 
+its related objects therefore we can fetch data with a single request.
+
+In REST, each endpoint has a fixed data structure which it reurns whenever a there is a hit. But since GraphQL is a
+query language and we can construct a query to retrieve only the data we need.
+
+All GraphQL request, success or error returns status code 200 and complete error message is sent to the client with the 
+response unlike REST. 
+
+When comparing above differences we can decide GraphQL is better than REST because GraphQL provides us with more 
+flexibility. When retreiving data and we can replace multiple REST calls by a single GraphQL call we can say GraphQL is much
+efficient as well.

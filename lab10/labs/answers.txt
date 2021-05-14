@@ -1,0 +1,156 @@
+E16388
+CO324 -Docker lab answers
+
+Part A
+1.
+
+Docker image:
+
+A Docker image is a read-only template that contains libraries and dependencies, tools and other files need to run an application virtually.
+It provides a convenient way to package up applications and preconfigured server environments, which you can use for your own private use or 
+share publicly with other Docker users. They are lightweight,small and fast virtualization technology.
+
+Docker container:
+
+Containers are a standardized unit of software that allows developers to isolate their app from its environment. It is a runnable instance of a docker image.
+Containers are defined by its image and the options provided when creating it such as portnumbers.
+
+
+3.
+
+In here TAG collumn displys the version/variant details of the image. Ifan image is tagged without an explicit tag, it’s given the latest tag by default.
+
+4.
+
+Downloaded images are stored in for windows : C:\ProgramData\DockerDesktop
+This depends on the operating system.
+
+6.
+
+-d flag means it runs in detached mode. Therefore we cannot see anything in the terminal. The container runs in a background.
+ if we run without -d flag. we observe following in the docker console.
+
+172.17.0.1 - - [20/Dec/2020:19:15:15 +0000] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0" "-"
+
+7.
+ -p specify the port mappings between the host and container.
+ -p 8080:80 maps the container port 80 to port 8080 of the host machine.
+using -p we can also specify port type as tcp, udp.
+
+8.
+containerName:  wizardly_wu
+ 
+
+10.
+
+STATUS                     
+Exited (0) 8 seconds ago             
+
+under status collumn we can see Exited (0) 8 seconds ago. This means container is stopped.
+
+with flag -a , we can observe the all available containers. By defult it displays only the running containers.
+
+
+11.
+ by command, 
+	docker logs <containerName>
+
+By running "docker logs wizardly_wu" we can list the logs of a stopped container.
+
+
+12.
+ by rcommand,
+	docker restart <containerName>
+
+By running "docker restart wizardly_wu" we can restart the stopped container.
+
+
+13.
+ by command,
+	docker image rm <image> 
+
+By running "docker image rm nginx" we can delete the nginx docker image
+
+
+14.
+ we get the following message, 
+ Error response from daemon: conflict: unable to remove repository reference "nginx" (must force) - container 0e2ca2cfb08d is using its referenced image ae2feff98a0c
+ 
+ Therefore we cant remove a image which is being used by a container. We can try force remove using the -f flag.
+ If you use the -f flag and specify the image’s short or long ID, then this command untags and removes all images that match the specified ID.
+
+Part B
+
+1.
+
+image build: docker build -t e16388/app1 .
+run : docker run -p 3000:3000 -d e16388/app1
+
+2.
+DOCKERFILE was modified
+
+image build: docker build -t e16388/app2 .
+run : docker run -p 3000:3000 -d e16388/app2
+
+3.
+Passing environment variables while running
+
+run : docker run -p 3000:3000 -e message="E16388" -e colour="red" -d e16388/app2
+
+4.
+DOCKERFILE was modified
+
+run : docker run -p 3000:3000 -e message="388" -e colour="blue" -d e16388/app3
+
+5.
+DOCKERFILE was modified
+
+image build: docker build -t e16388/app4 .
+run : docker run -p 3000:3000 e16388/app4
+
+6.
+
+to get running containers:
+docker container ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS                    NAMES
+d2fd3bdbfc91   e16388/app4   "docker-entrypoint.s…"   4 minutes ago   Up 4 minutes   0.0.0.0:3000->3000/tcp   thirsty_knuth
+
+to stop container:
+docker container stop d2fd3bdbfc91
+
+to remove container:
+docker container rm d2fd3bdbfc91
+
+check whether container was removed:
+docker container ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS                       PORTS     NAMES
+
+When accessing previously stored file, it was unable to access. The uploaded file was stored in the container on a writable layer.
+When container was removed data inside it is removed with it. Therefore we cant access uploaded data after container was destroyed.
+
+7.
+
+build a volume : docker volume create task7
+
+docker container : docker run -p 3000:3000 -v task7:/app/upload -d e16388/app4
+
+to get running containers:
+docker container ps
+CONTAINER ID   IMAGE         COMMAND                  CREATED         STATUS         PORTS                    NAMES
+5807f6fd04ef   e16388/app4   "docker-entrypoint.s…"   2 minutes ago   Up 5 seconds   0.0.0.0:3000->3000/tcp   quizzical_bohr
+
+to stop container:
+docker container stop 5807f6fd04ef   
+
+to remove container:
+docker container rm 5807f6fd04ef 
+
+  
+build a new docker container : docker run -p 3000:3000 -v task7:/app/upload -d e16388/app4
+
+In here for both containers, task7 volume was mounted to store files in app/upload directory.
+
+8.
+URL of the repository
+
+https://hub.docker.com/r/e16388/app4/tags?page=1&ordering=last_updated
